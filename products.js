@@ -7,6 +7,7 @@ const app = createApp({
       apiUrl: "https://vue3-course-api.hexschool.io/v2",
       apiPath: "darrenhsu",
       products: [],
+      productsNum: 0,
       tempProduct: {},
     };
   },
@@ -31,6 +32,7 @@ const app = createApp({
         .get(url)
         .then((response) => {
           this.products = response.data.products;
+          this.productsNum = Object.keys(this.products).length;
         })
         .catch((err) => {
           alert(err.response.data.message);
